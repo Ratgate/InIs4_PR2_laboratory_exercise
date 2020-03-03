@@ -1,0 +1,32 @@
+package com.company;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Animal dog = new Animal("dog");
+        dog.name="Albert";
+
+        System.out.println(dog.name + dog.species);
+        dog.feed();
+
+
+        Human me = new Human();
+        me.firstName="Captan";
+        me.lastName="Peppers";
+        me.pet = dog;
+
+        System.out.println(me.pet.species);
+        System.out.println(me.pet.name);
+        me.pet.feed();
+        me.pet.takeForWalk();
+        me.pet.takeForWalk();
+        me.pet.takeForWalk();
+        me.pet.takeForWalk();
+
+        Car myCar = new Car( "Mazda");
+
+
+
+
+        }
+}
