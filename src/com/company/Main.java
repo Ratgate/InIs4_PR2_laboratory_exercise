@@ -25,7 +25,7 @@ public class Main {
 
         Car myCar = new Car( "Mazda");
 
-
+        System.out.println("Dog is dead");
 
 
         }

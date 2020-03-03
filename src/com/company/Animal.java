@@ -11,7 +11,7 @@ public class Animal {
     final static Double DEFAULT_WEIGHT_LION = 150.0;
     final static Double DEFAULT_WEIGHT_PEUNGUIN = 13.0;
     private Boolean isAlive = true;
-    private String deathScream = "Your dog is dead, you dog murderer!";
+    private String deathScream = "Your dog is too dead to do that, you dog murderer!";
 
     public Animal(String species) {
 
