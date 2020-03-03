@@ -24,8 +24,14 @@ public class Main {
         me.pet.takeForWalk();
 
         Car myCar = new Car( "Mazda");
+        myCar.value = 50000.0f;
+        myCar.seats = 5;
+        myCar.colour = "black";
+        myCar.yearOfProduction = 2012;
+        myCar.plate = "AE-4KM1";
 
-        System.out.println("Dog is dead");
+        me.setOfWheels = myCar;
+        System.out.println(me.setOfWheels.plate);
 
 
         }
