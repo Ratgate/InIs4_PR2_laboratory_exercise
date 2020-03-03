@@ -7,9 +7,9 @@ public class Animal {
     String name;
     private Double weight;
     File pic;
-    final static Double DEFAULT_WEIGHT_DOG = 4.0;
-    final static Double DEFAULT_WEIGHT_LION = 150.0;
-    final static Double DEFAULT_WEIGHT_PEUNGUIN = 13.0;
+    private final static Double DEFAULT_WEIGHT_DOG = 4.0;
+    private final static Double DEFAULT_WEIGHT_LION = 150.0;
+    private final static Double DEFAULT_WEIGHT_PEUNGUIN = 13.0;
     private Boolean isAlive = true;
     private String deathScream = "Your dog is too dead to do that, you dog murderer!";
 
@@ -48,7 +48,7 @@ public class Animal {
     }
     void takeForWalk()
     {
-        if (isAlive == true)
+        if (isAlive)
         {
             System.out.println("Who lets the dogs out?");
             weight--;
@@ -57,5 +57,9 @@ public class Animal {
         }
         else
             System.out.println(deathScream);
+    }
+
+    public String toString(){
+        return this.name + " Is alive? " + this.isAlive;
     }
 }

@@ -24,4 +24,8 @@ public class Car {
             this.plate = plate;
         }
     }
+
+    public String toString(){
+        return this.brand + " " + this.yearOfProduction;
+    }
 }
