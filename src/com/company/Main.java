@@ -2,17 +2,17 @@ package com.company;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Animal dog = new Animal("dog");
-        dog.name="Albert";
+        dog.name = "Albert";
 
         System.out.println(dog.name + dog.species);
         dog.feed();
 
 
         Human me = new Human();
-        me.firstName="Captan";
-        me.lastName="Peppers";
+        me.firstName = "Captan";
+        me.lastName = "Peppers";
         me.pet = dog;
 
         System.out.println(me.pet.species);
@@ -23,16 +23,16 @@ public class Main {
         me.pet.takeForWalk();
         me.pet.takeForWalk();
 
-        Car myCar = new Car( "Mazda");
+        Car myCar = new Car("Mazda");
         myCar.value = 50000.0f;
         myCar.seats = 5;
         myCar.colour = "black";
         myCar.yearOfProduction = 2012;
-        myCar.plate = "AE-4KM1";
+        myCar.setPlate("AEZ-4KM1");
 
         me.setOfWheels = myCar;
-        System.out.println(me.setOfWheels.plate);
+        System.out.println(me.setOfWheels.getPlate());
 
 
-        }
+    }
 }
