@@ -16,7 +16,7 @@ public class Main {
         me.firstName = "Captan";
         me.lastName = "Peppers";
         me.pet = dog;
-        me.cash = 3000f;
+        me.cash = 3000d;
 
         System.out.println(me.pet.species);
         System.out.println(me.pet.name);
@@ -39,7 +39,7 @@ public class Main {
 
         Human myWife = new Human();
         myWife.setCar(me.getCar());
-        myWife.cash = 2400f;
+        myWife.cash = 2400d;
         System.out.println(myWife.getCar().getPlate());
 
         System.out.println(me.getCar());
@@ -53,7 +53,7 @@ public class Main {
         Human bigMe = new Human();
         bigMe.pet = myWife;
 
-        me.pet.sell(me, myWife, 1600f);
+        me.pet.sell(me, myWife, 1600d);
 
 
     }

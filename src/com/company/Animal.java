@@ -1,7 +1,5 @@
 package com.company;
 
-import com.company.devices.Device;
-
 import java.io.File;
 
 public class Animal implements Ediable, Saleable {
@@ -71,7 +69,7 @@ public class Animal implements Ediable, Saleable {
     }
 
     @Override
-    public void sell(Human seller, Human buyer, float price) throws Exception {
+    public void sell(Human seller, Human buyer, double price) throws Exception {
         if(this instanceof Human){
             throw new Exception("Slavery is forbidden in this parts, hombre");
         }
@@ -82,13 +80,12 @@ public class Animal implements Ediable, Saleable {
                 seller.cash += price;
                 buyer.pet = seller.pet;
                 seller.pet = null;
+                System.out.println("This " + buyer.pet.species +" has been sold to the highest bidder");
             }
             else
             {
                 System.out.println(buyer.name + "has not enough money to buy this" + seller.species);
             }
-
-            System.out.println("This " + buyer.pet.species +" has been sold to the highest bidder");
         }
     }
 }

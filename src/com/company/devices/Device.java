@@ -19,10 +19,12 @@ public abstract class Device implements Saleable {
     abstract void turnOn();
 
     @Override
-    public void sell(Human seller, Human buyer, float price) {
+    public void sell(Human seller, Human buyer, double price) {
         if(buyer.cash <= price)
         {
-            System.out.println("Device has been sold, yet not implemented");
+            buyer.cash -= price;
+            seller.cash += price;
+            System.out.println("Device has been sold, yet transaction lacks product");
         }
         else
         {
