@@ -1,5 +1,6 @@
 package com.company.devices;
 
+import com.company.Human;
 import com.company.Saleable;
 
 public abstract class Device implements Saleable {
@@ -16,8 +17,17 @@ public abstract class Device implements Saleable {
     }
 
     abstract void turnOn();
+
     @Override
-    public void sell() {
-        System.out.println("Device has been sold");
+    public void sell(Human who, Device what, Human whom, float price) {
+        if(whom.cash <= price)
+        {
+            System.out.println("Device has been sold, yet not implemented");
+        }
+        else
+        {
+            System.out.println("Sorry, no can do");
+        }
+
     }
 }
