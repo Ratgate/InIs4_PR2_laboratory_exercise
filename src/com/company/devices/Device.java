@@ -19,8 +19,8 @@ public abstract class Device implements Saleable {
     abstract void turnOn();
 
     @Override
-    public void sell(Human who, Human whom, float price) {
-        if(whom.cash <= price)
+    public void sell(Human seller, Human buyer, float price) {
+        if(buyer.cash <= price)
         {
             System.out.println("Device has been sold, yet not implemented");
         }
