@@ -51,7 +51,8 @@ public class Main {
         Human bigMe = new Human();
         bigMe.pet = myWife;
 
-
+        me.sell();
+        me.pet.sell();
 
 
     }

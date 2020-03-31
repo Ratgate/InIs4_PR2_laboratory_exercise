@@ -28,4 +28,9 @@ public class Car extends Device {
     public String toString(){
         return this.brand + " " + this.yearOfProduction;
     }
+
+    @Override
+    void turnOn() {
+        System.out.println("Started the ignition");
+    }
 }
