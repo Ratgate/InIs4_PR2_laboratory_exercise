@@ -1,11 +1,11 @@
-package com.company;
+package com.company.devices;
 
-public class Car {
+public class Car extends Device {
     String brand;
-    Float value;
-    Integer seats;
-    String colour;
-    Integer yearOfProduction;
+    public Float value;
+    public Integer seats;
+    public String colour;
+    public Integer yearOfProduction;
     private String plate;
 
     public Car(String brand) {

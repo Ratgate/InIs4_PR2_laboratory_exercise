@@ -9,7 +9,7 @@ public class Animal {
     File pic;
     private final static Double DEFAULT_WEIGHT_DOG = 4.0;
     private final static Double DEFAULT_WEIGHT_LION = 150.0;
-    private final static Double DEFAULT_WEIGHT_PEUNGUIN = 13.0;
+    private final static Double DEFAULT_WEIGHT_PENGUIN = 13.0;
     private Boolean isAlive = true;
     private String deathScream = "Your dog is too dead to do that, you dog murderer!";
 
@@ -20,8 +20,8 @@ public class Animal {
             this.weight = DEFAULT_WEIGHT_DOG;
         else if(this.species == "lion")
             this.weight = DEFAULT_WEIGHT_LION;
-        else if(this.species == "peunguin")
-            this.weight = DEFAULT_WEIGHT_PEUNGUIN;
+        else if(this.species == "penguin")
+            this.weight = DEFAULT_WEIGHT_PENGUIN;
     }
     void checkIfAlive(){
         if(weight > 3*DEFAULT_WEIGHT_DOG)
