@@ -71,7 +71,7 @@ public class Animal implements Ediable, Saleable {
     }
 
     @Override
-    public void sell(Human who, Animal what, Human whom, float price) throws Exception {
+    public void sell(Human who, Human whom, float price) throws Exception {
         if(this instanceof Human){
             throw new Exception("Slavery is forbidden in this parts, hombre");
         }
@@ -85,10 +85,10 @@ public class Animal implements Ediable, Saleable {
             }
             else
             {
-                System.out.println(whom.name + "has not enough money to buy this" + what.species);
+                System.out.println(whom.name + "has not enough money to buy this" + who.species);
             }
 
-            System.out.println("This " + this.species +" has been sold to the highest bidder");
+            System.out.println("This " + whom.pet.species +" has been sold to the highest bidder");
         }
     }
 }

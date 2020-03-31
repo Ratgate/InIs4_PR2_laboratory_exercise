@@ -53,7 +53,7 @@ public class Main {
         Human bigMe = new Human();
         bigMe.pet = myWife;
 
-        me.pet.sell(me, me.pet, myWife, 1600f);
+        me.pet.sell(me, myWife, 1600f);
 
 
     }
