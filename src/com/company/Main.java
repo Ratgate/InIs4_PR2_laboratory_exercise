@@ -1,11 +1,14 @@
 package com.company;
 
+import com.company.creatures.Animal;
+import com.company.creatures.Human;
+import com.company.creatures.Pet;
 import com.company.devices.Car;
 
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        Animal dog = new Animal("dog");
+        Pet dog = new Pet ("dog");
         dog.name = "Albert";
 
         System.out.println(dog.name + dog.species);

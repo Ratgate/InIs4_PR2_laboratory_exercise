@@ -1,9 +1,9 @@
-package com.company;
+package com.company.creatures;
 
 import com.company.devices.Car;
 import com.company.devices.Phone;
 
-public class Human extends  Animal{
+public class Human extends Animal {
     public String firstName;
     public String lastName;
     protected Phone mobile;

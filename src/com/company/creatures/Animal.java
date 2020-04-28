@@ -1,26 +1,28 @@
-package com.company;
+package com.company.creatures;
+import com.company.Saleable;
+import com.company.creatures.Human;
 
 import java.io.File;
 
-public class Animal implements Ediable, Saleable {
-    final String species;
-    String name;
+public abstract class Animal implements Saleable {
+    final public String species;
+    public String name;
     private Double weight;
     File pic;
     private final static Double DEFAULT_WEIGHT_DOG = 4.0;
     private final static Double DEFAULT_WEIGHT_LION = 150.0;
     private final static Double DEFAULT_WEIGHT_PENGUIN = 13.0;
-    private Boolean isAlive = true;
+    Boolean isAlive = true;
     private String deathScream = "Your dog is too dead to do that, you dog murderer!";
 
     public Animal(String species) {
 
         this.species = species;
-        if(this.species == "dog")
+        if(this.species.equals("dog"))
             this.weight = DEFAULT_WEIGHT_DOG;
-        else if(this.species == "lion")
+        else if(this.species.equals("lion"))
             this.weight = DEFAULT_WEIGHT_LION;
-        else if(this.species == "penguin")
+        else if(this.species.equals("penguin"))
             this.weight = DEFAULT_WEIGHT_PENGUIN;
     }
     void checkIfAlive(){
@@ -36,8 +38,8 @@ public class Animal implements Ediable, Saleable {
         }
     }
 
-    void feed(){
-        if (isAlive == true) {
+    public void feed(){
+        if (isAlive) {
             System.out.println("Omnomnom");
             weight++;
             checkIfAlive();
@@ -46,7 +48,7 @@ public class Animal implements Ediable, Saleable {
         else
             System.out.println(deathScream);
     }
-    void takeForWalk()
+    public void takeForWalk()
     {
         if (isAlive)
         {
@@ -63,10 +65,7 @@ public class Animal implements Ediable, Saleable {
         return this.name + " Is alive? " + this.isAlive;
     }
 
-    @Override
-    public void beEaten() {
-        this.isAlive = false;
-    }
+
 
     @Override
     public void sell(Human seller, Human buyer, double price) throws Exception {
