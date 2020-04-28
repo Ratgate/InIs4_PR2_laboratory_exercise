@@ -41,6 +41,15 @@ public class Human extends Animal {
         }
     }
 
+    public void feed(){
+        feed(1.0d);
+    }
+
+    public void feed(Double foodWeight)
+    {
+            System.out.println("Człowiek zjadł, lecz nie waży więc nie tyje.");
+    }
+
     public String toString(){
         return this.firstName + " " + this.lastName;
     }

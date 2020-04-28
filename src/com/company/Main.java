@@ -57,6 +57,7 @@ public class Main {
         bigMe.pet = myWife;
 
         me.pet.sell(me, myWife, 1600d);
+        me.feed();
 
 
     }
