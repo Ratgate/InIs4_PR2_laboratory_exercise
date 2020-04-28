@@ -1,6 +1,6 @@
 package com.company.devices;
 
-public class Car extends Device {
+public abstract class Car extends Device {
     String brand;
     public Float value;
     public Integer seats;
@@ -33,4 +33,6 @@ public class Car extends Device {
     void turnOn() {
         System.out.println("Started the ignition");
     }
+
+    abstract void refuel();
 }

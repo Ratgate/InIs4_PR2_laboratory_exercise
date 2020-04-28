@@ -4,6 +4,7 @@ import com.company.creatures.Animal;
 import com.company.creatures.Human;
 import com.company.creatures.Pet;
 import com.company.devices.Car;
+import com.company.devices.ElectricCar;
 
 public class Main {
 
@@ -29,7 +30,7 @@ public class Main {
         me.pet.takeForWalk();
         me.pet.takeForWalk();
 
-        Car myCar = new Car("Mazda");
+        ElectricCar myCar = new ElectricCar("Mazda");
         myCar.value = 12000.0f;
         myCar.seats = 5;
         myCar.colour = "black";
@@ -58,7 +59,5 @@ public class Main {
 
         me.pet.sell(me, myWife, 1600d);
         me.feed();
-
-
     }
 }
