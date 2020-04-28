@@ -1,10 +1,11 @@
 package com.company.creatures;
+import com.company.Feedable;
 import com.company.Saleable;
 import com.company.creatures.Human;
 
 import java.io.File;
 
-public abstract class Animal implements Saleable {
+public abstract class Animal implements Saleable, Feedable {
     final public String species;
     public String name;
     private Double weight;
@@ -39,15 +40,21 @@ public abstract class Animal implements Saleable {
     }
 
     public void feed(){
+        feed(1.0d);
+    }
+
+    public void feed(Double foodWeight)
+    {
         if (isAlive) {
             System.out.println("Omnomnom");
-            weight++;
+            weight += foodWeight;
             checkIfAlive();
             System.out.println(weight);
         }
         else
             System.out.println(deathScream);
     }
+
     public void takeForWalk()
     {
         if (isAlive)
