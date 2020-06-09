@@ -8,24 +8,31 @@ import java.io.File;
 public abstract class Animal implements Saleable, Feedable {
     final public String species;
     public String name;
+    public Boolean isAlive = true;
+
     private Double weight;
-    File pic;
+    private File pic;
     private final static Double DEFAULT_WEIGHT_DOG = 4.0;
     private final static Double DEFAULT_WEIGHT_LION = 150.0;
     private final static Double DEFAULT_WEIGHT_PENGUIN = 13.0;
-    Boolean isAlive = true;
     private String deathScream = "Your dog is too dead to do that, you dog murderer!";
 
-    public Animal(String species) {
 
+    public Animal(String species) {
         this.species = species;
-        if(this.species.equals("dog"))
-            this.weight = DEFAULT_WEIGHT_DOG;
-        else if(this.species.equals("lion"))
-            this.weight = DEFAULT_WEIGHT_LION;
-        else if(this.species.equals("penguin"))
-            this.weight = DEFAULT_WEIGHT_PENGUIN;
+        switch (this.species) {
+            case "dog":
+                this.weight = DEFAULT_WEIGHT_DOG;
+                break;
+            case "lion":
+                this.weight = DEFAULT_WEIGHT_LION;
+                break;
+            case "penguin":
+                this.weight = DEFAULT_WEIGHT_PENGUIN;
+                break;
+        }
     }
+
     void checkIfAlive(){
         if(weight > 3*DEFAULT_WEIGHT_DOG)
         {
@@ -40,6 +47,7 @@ public abstract class Animal implements Saleable, Feedable {
     }
 
     public void feed(){
+
         feed(1.0d);
     }
 

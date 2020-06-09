@@ -1,12 +1,14 @@
 package com.company.devices;
 
-public class DieselCar extends Car {
-    public DieselCar(String brand) {
+public class Diesel extends Car {
+
+
+    public Diesel(String brand) {
         super(brand);
     }
 
     @Override
-    void refuel() {
+    public void refuel() {
         System.out.println("Your car has been refuel with black, liquefied gold");
     }
 

@@ -1,12 +1,14 @@
 package com.company.devices;
 
-public class ElectricCar extends Car {
-    public ElectricCar(String brand) {
+public class Electric extends Car {
+
+
+    public Electric(String brand) {
         super(brand);
     }
 
     @Override
-    void refuel() {
+    public void refuel() {
         System.out.println("Yours cars battery is fully recharged");
     }
 

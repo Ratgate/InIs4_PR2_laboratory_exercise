@@ -6,7 +6,9 @@ public abstract class Car extends Device {
     public Integer seats;
     public String colour;
     public Integer yearOfProduction;
+
     private String plate;
+
 
     public Car(String brand) {
         this.brand = brand;
@@ -34,5 +36,5 @@ public abstract class Car extends Device {
         System.out.println("Started the ignition");
     }
 
-    abstract void refuel();
+    abstract public void refuel();
 }

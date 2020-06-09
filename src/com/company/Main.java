@@ -1,10 +1,9 @@
 package com.company;
 
-import com.company.creatures.Animal;
 import com.company.creatures.Human;
 import com.company.creatures.Pet;
-import com.company.devices.Car;
-import com.company.devices.ElectricCar;
+import com.company.devices.Electric;
+import com.company.devices.Phone;
 
 public class Main {
 
@@ -17,7 +16,7 @@ public class Main {
 
 
         Human me = new Human();
-        me.firstName = "Captan";
+        me.firstName = "Captain";
         me.lastName = "Peppers";
         me.pet = dog;
         me.cash = 3000d;
@@ -30,7 +29,7 @@ public class Main {
         me.pet.takeForWalk();
         me.pet.takeForWalk();
 
-        ElectricCar myCar = new ElectricCar("Mazda");
+        Electric myCar = new Electric("Mazda");
         myCar.value = 12000.0f;
         myCar.seats = 5;
         myCar.colour = "black";
@@ -59,5 +58,11 @@ public class Main {
 
         me.pet.sell(me, myWife, 1600d);
         me.feed();
+
+        Phone samplePhone = new Phone();
+        samplePhone.installAnnApp("BrickMasters", "1.04");
+
+
+        myWife.getCar().refuel();
     }
 }

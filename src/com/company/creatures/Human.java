@@ -6,11 +6,14 @@ import com.company.devices.Phone;
 public class Human extends Animal {
     public String firstName;
     public String lastName;
-    protected Phone mobile;
+    public double cash;
     public Animal pet;
+
+    protected Phone mobile;
+
     private Double salary = 1500.0d;
     private Car setOfWheels;
-    public double cash;
+
 
     public Human() {
         super("Homo sapient");
