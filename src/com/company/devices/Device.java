@@ -10,6 +10,7 @@ public abstract class Device implements Saleable {
     public String producer;
     public String model;
     public Integer yearOfProduction;
+    public Double value;
 
 
     public String toString(){
@@ -19,7 +20,7 @@ public abstract class Device implements Saleable {
     abstract void turnOn();
 
     @Override
-    public void sell(Human seller, Human buyer, double price) {
+    public void sell(Human seller, Human buyer, double price) throws Exception {
         if(buyer.cash <= price)
         {
             buyer.cash -= price;
@@ -30,6 +31,5 @@ public abstract class Device implements Saleable {
         {
             System.out.println("Sorry, no can do");
         }
-
     }
 }

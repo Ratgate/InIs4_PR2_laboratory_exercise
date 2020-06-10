@@ -3,6 +3,9 @@ package com.company.creatures;
 import com.company.devices.Car;
 import com.company.devices.Phone;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class Human extends Animal {
     public String firstName;
     public String lastName;
@@ -11,24 +14,31 @@ public class Human extends Animal {
 
     protected Phone mobile;
 
+    private static final Integer MAX_GARAGE_SIZE = 5;
     private Double salary = 1500.0d;
-    private Car setOfWheels;
+    public Car[] garage;
 
 
     public Human() {
         super("Homo sapient");
+        this.garage = new Car[MAX_GARAGE_SIZE];
+    }
+
+    public Human(Integer maxGarageSize){
+        super("Homo sapient");
+        this.garage = new Car[maxGarageSize];
     }
 
     public Double getSalary() {
         return salary;
     }
 
-    public Car getCar(){
-        return setOfWheels;
+    public Car getCar(Integer number){
+        return this.garage[number+1];
     }
 
-    public void setCar(Car car){
-        this.setOfWheels = car;
+    public void setCar(Car car, Integer number){
+        this.garage[number] = car;
     }
 
 
@@ -55,5 +65,17 @@ public class Human extends Animal {
 
     public String toString(){
         return this.firstName + " " + this.lastName;
+    }
+
+    public double allCarsValue(){
+        double value = 0;
+        for(Integer i = 0; i < this.garage.length; i++){
+            value += this.garage[i].value;
+        }
+        return value;
+    }
+
+    public void sortCarsByYearAscending(){
+        Arrays.sort(this.garage);
     }
 }

@@ -1,8 +1,9 @@
 package com.company.devices;
 
+import com.company.creatures.Human;
+
 public abstract class Car extends Device {
     String brand;
-    public Float value;
     public Integer seats;
     public String colour;
     public Integer yearOfProduction;
@@ -37,4 +38,34 @@ public abstract class Car extends Device {
     }
 
     abstract public void refuel();
+
+    public void sell(Human seller, Human buyer, double price) throws Exception {
+        Boolean sellerOwnsCar = false;
+        for(Integer i = 0; i < seller.garage.length; i++){
+            if(this == seller.garage[i]){
+                sellerOwnsCar = true;
+                break;
+            }
+            if(!sellerOwnsCar){
+                throw new Exception("Sprzedawca nie ma tego samochodu na sprzedaż");
+            }
+
+
+        }
+
+
+
+
+
+        if(buyer.cash <= price)
+        {
+            buyer.cash -= price;
+            seller.cash += price;
+            System.out.println("Device has been sold, yet transaction lacks product");
+        }
+        else
+        {
+            System.out.println("Sorry, no can do");
+        }
+    }
 }
