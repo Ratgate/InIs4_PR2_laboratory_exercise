@@ -18,9 +18,12 @@ public class Main {
         me.pet.takeForAWalk();
         me.pet.feed();
 
-        me.car = new Car("Sedan", "Skoda");
         me.getSalary();
         me.setSalary(3500.0d);
         me.getSalary();
+
+        me.setCar(new Car("Cheap", "Wagenmachen", 3200.0d));
+        me.setCar(new Car("Affordable", "Panstraad", 18000.0d));
+        me.setCar(new Car("Ultraspensive", "Warcod", 80000.0d));
     }
 }

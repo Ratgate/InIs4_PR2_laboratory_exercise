@@ -4,7 +4,7 @@ public class Human {
     public String firstName;
     public String lastName;
     public Animal pet;
-    public Car car;
+    private Car car;
 
     private Double salary = 0.0d;
     protected Phone phone;
@@ -22,6 +22,23 @@ public class Human {
             this.salary = newSalary;
         } else {
             System.out.println("Niemożliwe jest podwyższenie pensji o niedodatnią kwotę ");
+        }
+    }
+
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        if(this.salary > car.value){
+            System.out.println("Udało się kupić samochód za gotówkę");
+            this.car = car;
+        } else if(this.salary > car.value/12){
+            System.out.println("Udało się kupić samochód na kredyt");
+            this.car = car;
+        } else {
+            System.out.println("Info w stylu \"zapisz się na studia i znajdź nową robotę albo idź po podwyżkę\"");
         }
     }
 }
