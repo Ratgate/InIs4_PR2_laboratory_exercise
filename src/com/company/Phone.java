@@ -8,6 +8,7 @@ public class Phone {
     final Float screenSize;
     final String os;
 
+
     public Phone(String producer, String model, Float screenSize, String os) {
         this.producer = producer;
         this.model = model;

@@ -17,5 +17,7 @@ public class Main {
         me.pet.takeForAWalk();
         me.pet.takeForAWalk();
         me.pet.feed();
+
+        me.car = new Car("Sedan", "Skoda");
     }
 }
