@@ -19,5 +19,8 @@ public class Main {
         me.pet.feed();
 
         me.car = new Car("Sedan", "Skoda");
+        me.getSalary();
+        me.setSalary(3500.0d);
+        me.getSalary();
     }
 }
