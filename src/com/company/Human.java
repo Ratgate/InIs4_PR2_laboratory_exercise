@@ -6,5 +6,5 @@ public class Human {
     public Animal pet;
 
     private Double salary;
-    protected String phone;
+    protected Phone phone;
 }
