@@ -1,5 +1,8 @@
 package com.company;
 
+import devices.Car;
+import devices.Phone;
+
 public class Human {
     public String firstName;
     public String lastName;
@@ -40,5 +43,9 @@ public class Human {
         } else {
             System.out.println("Info w stylu \"zapisz się na studia i znajdź nową robotę albo idź po podwyżkę\"");
         }
+    }
+
+    public String toString(){
+        return firstName + " " + lastName + " " + pet + " " + this.getCar() + " " + this.getSalary() + " " + phone;
     }
 }

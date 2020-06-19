@@ -1,4 +1,4 @@
-package com.company;
+package devices;
 
 import java.sql.SQLOutput;
 
@@ -27,5 +27,9 @@ public class Phone {
 
     void installAnApp(){
         System.out.println("App has been installed on the phone");
+    }
+
+    public String toString(){
+        return producer + " " + model + " " + screenSize + " " + os;
     }
 }

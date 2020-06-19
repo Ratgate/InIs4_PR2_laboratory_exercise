@@ -57,4 +57,8 @@ public class Animal {
     void playWith(){
         System.out.println("Animal " + this.name + " has been played with");
     }
+
+    public String toString(){
+        return species + " " + name + " " + weight;
+    }
 }
