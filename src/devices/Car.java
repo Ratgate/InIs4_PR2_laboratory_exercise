@@ -1,8 +1,6 @@
 package devices;
 
-public class Car {
-    final public String model;
-    final public String producer;
+public class Car extends Device{
     public Integer numberOfDoors;
     public Float maxSpeed;
     public Double value;
@@ -16,5 +14,10 @@ public class Car {
 
     public String toString(){
         return model + " " + producer + " " + numberOfDoors + " " + maxSpeed + " " + value;
+    }
+
+    @Override
+    public void turnOn() {
+        System.out.println("Car has been turned on");
     }
 }

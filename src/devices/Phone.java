@@ -2,9 +2,7 @@ package devices;
 
 import java.sql.SQLOutput;
 
-public class Phone {
-    final public String producer;
-    final String model;
+public class Phone extends Device {
     final Float screenSize;
     final String os;
 
@@ -17,7 +15,8 @@ public class Phone {
     }
 
 
-    void turnOn(){
+    @Override
+    public void turnOn(){
         System.out.println("Phone has been turned on");
     }
 

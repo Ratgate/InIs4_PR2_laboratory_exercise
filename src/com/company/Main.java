@@ -5,6 +5,7 @@ import devices.Phone;
 
 public class Main {
 
+
     public static void main(String[] args){
         Human me = new Human();
         me.firstName = "Captain";
@@ -60,5 +61,8 @@ public class Main {
         System.out.println(me.pet.toString());
         System.out.println(me.phone.toString());
         System.out.println(me.getCar().toString());
+
+        me.getCar().turnOn();
+        me.phone.turnOn();
     }
 }
