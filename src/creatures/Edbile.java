@@ -1,5 +1,5 @@
 package creatures;
 
-public interface Edbile {
+interface Edbile {
     void beEaten();
 }

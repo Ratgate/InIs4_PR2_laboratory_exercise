@@ -2,7 +2,13 @@ package devices;
 
 import creatures.Human;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 public class Phone extends Device {
+    static final String DEFAULT_APPLICATIONS_SERVER = "http://defaultCity.com";
+    static final String DEFAULT_APPLICATIONS_PROTOCOL = "https";
+    static final String DEFAULT_APPLICATIONS_VERSION = "latest";
     final Float screenSize;
     final String os;
 
@@ -24,6 +30,38 @@ public class Phone extends Device {
 
     void installAnApp(){
         System.out.println("App has been installed on the phone");
+    }
+
+    void installAnnApp(String name){
+        installAnnApp(name, DEFAULT_APPLICATIONS_VERSION);
+    }
+
+    void installAnnApp(String name, String version){
+        installAnnApp(name, version, DEFAULT_APPLICATIONS_SERVER);
+    }
+
+    void installAnnApp(String name, String version, String address){
+        URL url = null;
+        try {
+            url = new URL(DEFAULT_APPLICATIONS_PROTOCOL, DEFAULT_APPLICATIONS_SERVER, 433, name + "ver." + version);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        installAnnApp(url);
+    }
+
+    void installAnnApp(String[] namesList){
+        for (String name : namesList) {
+            installAnnApp(name);
+        }
+    }
+
+    void installAnnApp(URL url){
+        try{
+            System.out.println("Zainstalowano " + url.getFile());
+        } catch (NullPointerException e){
+            e.printStackTrace();
+        }
     }
 
     @Override

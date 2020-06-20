@@ -2,7 +2,7 @@ package devices;
 
 import creatures.Human;
 
-public class Car extends Device{
+public abstract class Car extends Device{
     public Integer numberOfDoors;
     public Float maxSpeed;
     public Double value;
@@ -40,6 +40,8 @@ public class Car extends Device{
     public void turnOn(){
         System.out.println("Car has been turned on");
     }
+
+    public abstract void refuel();
 
     public String toString(){
         return model + " " + producer + " " + numberOfDoors + " " + maxSpeed + " " + value;

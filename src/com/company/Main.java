@@ -3,8 +3,7 @@ package com.company;
 import creatures.Animal;
 import creatures.Human;
 import creatures.Pet;
-import devices.Car;
-import devices.Phone;
+import devices.*;
 
 public class Main {
 
@@ -30,18 +29,18 @@ public class Main {
         me.setSalary(3500.0d);
         me.getSalary();
 
-        me.buyCar(new Car("Cheap", "Wagenmachen", 3200.0d));
-        me.buyCar(new Car("Affordable", "Panstraad", 18000.0d));
-        me.buyCar(new Car("Ultraspensive", "Warcod", 80000.0d));
+        me.buyCar(new LPG("Cheap", "Wagenmachen", 3200.0d));
+        me.buyCar(new Diesel("Affordable", "Panstraad", 18000.0d));
+        me.buyCar(new Electric("Ultraspensive", "Warcod", 80000.0d));
 
         Human myWife = new Human();
         myWife.firstName = "Yatra";
         myWife.lastName = "Aletroch";
         myWife.setSalary(4200.0d);
         myWife.cash = 3000.0d;
-        myWife.buyCar(new Car("Affordable", "Panstraad", 18000.0d));
+        myWife.buyCar(new LPG("Affordable", "Panstraad", 18000.0d));
 
-        Car sampleCar = new Car("Sedan", "OverpricedMotorsCompany", 12000.0d);
+        Car sampleCar = new Electric("Sedan", "OverpricedMotorsCompany", 12000.0d);
 
         if(myWife.getCar().hashCode() == me.getCar().hashCode()){
             System.out.println("Porównanie samochodu me i myWife zwraca " + myWife.getCar().equals(me.getCar()));
