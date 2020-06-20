@@ -7,8 +7,9 @@ public class Human {
     public String firstName;
     public String lastName;
     public Animal pet;
-    private Car car;
+    public Double cash;
 
+    private Car car;
     private Double salary = 0.0d;
     protected Phone phone;
 
@@ -33,7 +34,11 @@ public class Human {
         return car;
     }
 
-    public void setCar(Car car) {
+    public void setCar(Car car){
+        this.car = car;
+    }
+
+    public void buyCar(Car car) {
         if(this.salary > car.value){
             System.out.println("Udało się kupić samochód za gotówkę");
             this.car = car;
@@ -43,6 +48,14 @@ public class Human {
         } else {
             System.out.println("Info w stylu \"zapisz się na studia i znajdź nową robotę albo idź po podwyżkę\"");
         }
+    }
+
+    public Phone getPhone(){
+        return phone;
+    }
+
+    public void setPhone(Phone phone){
+        this.phone = phone;
     }
 
     public String toString(){

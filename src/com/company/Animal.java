@@ -2,7 +2,7 @@ package com.company;
 
 import java.io.File;
 
-public class Animal {
+public class Animal implements salleable{
     final static Double DEFAULT_WEIGHT_DOG = 4.0d;
     final static Double DEFAULT_WEIGHT_LION = 180.0d;
     final static Double DEFAULT_WEIGHT_PENGUIN = 22.0d;
@@ -56,6 +56,29 @@ public class Animal {
 
     void playWith(){
         System.out.println("Animal " + this.name + " has been played with");
+    }
+
+    @Override
+    public void sell(Human seller, Human buyer, Double price){
+        if(!(this.species.equals("human"))){
+            try{
+                if(seller.pet.equals(this)) {
+                    if(buyer.cash >= price) {
+                        buyer.cash -= price;
+                        seller.cash += price;
+                        buyer.pet = this;
+                        seller.pet = null;
+                        System.out.println(buyer.firstName + " " + buyer.lastName + " kupił " + this.species + " " + this.name + " od " + seller.firstName + " " + seller.lastName + " za " + price);
+                    } else {
+                        System.out.println(buyer.firstName + " " + buyer.lastName + " nie stać by zapłacić " + price);
+                    }
+                }
+            } catch (NullPointerException e) {
+               System.out.println(seller.firstName + " " + seller.lastName + " nie ma " + this.species + " o imieniu " + this.name);
+            }
+        } else {
+           System.out.println("Upewniliśmy się, że handel ludźmi jest niemożliwy w Mojej aplikacji");
+        }
     }
 
     public String toString(){
