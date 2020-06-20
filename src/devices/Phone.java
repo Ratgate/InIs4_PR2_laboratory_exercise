@@ -1,8 +1,6 @@
 package devices;
 
-import com.company.Human;
-
-import java.sql.SQLOutput;
+import creatures.Human;
 
 public class Phone extends Device {
     final Float screenSize;

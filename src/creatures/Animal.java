@@ -1,8 +1,10 @@
-package com.company;
+package creatures;
+
+import com.company.Feedable;
 
 import java.io.File;
 
-public class Animal implements salleable{
+public abstract class Animal implements salleable, Feedable {
     final static Double DEFAULT_WEIGHT_DOG = 4.0d;
     final static Double DEFAULT_WEIGHT_LION = 180.0d;
     final static Double DEFAULT_WEIGHT_PENGUIN = 22.0d;
@@ -10,10 +12,10 @@ public class Animal implements salleable{
 
     final public String species;
     public String name;
+    public Boolean isAlive = true;
     File pic;
 
     private Double weight;
-    private Boolean isAlive = true;
 
 
     public Animal(String species) {
@@ -32,16 +34,20 @@ public class Animal implements salleable{
     }
 
 
-    void feed(){
+    public void feed(){
+        this.feed(DEFAULT_WEIGHT_GAIN);
+    }
+
+    public void feed(Double foodWeight){
         if (this.isAlive) {
-            this.weight += DEFAULT_WEIGHT_GAIN;
+            this.weight += foodWeight;
             System.out.println(this.species + " " + this.name + " has been fed");
         } else {
             System.out.println("Dead " + this.species + " need no food");
         }
     }
 
-    void takeForAWalk(){
+    public void takeForAWalk(){
         if (this.isAlive) {
             this.weight -= DEFAULT_WEIGHT_GAIN;
             System.out.println(this.species + " " + this.name + " has been taken for a walk");

@@ -1,6 +1,6 @@
 package devices;
 
-import com.company.Human;
+import creatures.Human;
 
 import java.util.Date;
 

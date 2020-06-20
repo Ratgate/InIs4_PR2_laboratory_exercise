@@ -1,5 +1,8 @@
 package com.company;
 
+import creatures.Animal;
+import creatures.Human;
+import creatures.Pet;
 import devices.Car;
 import devices.Phone;
 
@@ -10,10 +13,10 @@ public class Main {
         Human me = new Human();
         me.firstName = "Captain";
         me.lastName = "Peppers";
-        me.phone = new Phone("Apple", "OPv3",14.0f, "IOS");
+        me.setPhone(new Phone("Apple", "OPv3",14.0f, "IOS"));
         me.cash = 5000.0d;
 
-        me.pet = new Animal("dog");
+        me.pet = new Pet("dog");
         me.pet.name = "Shaka";
 
         me.pet.feed();
@@ -63,11 +66,11 @@ public class Main {
 
         System.out.println(me.toString());
         System.out.println(me.pet.toString());
-        System.out.println(me.phone.toString());
+        System.out.println(me.getPhone().toString());
         System.out.println(me.getCar().toString());
 
         me.getCar().turnOn();
-        me.phone.turnOn();
+        me.getPhone().turnOn();
 
 
         me.getCar().sell(me,myWife, 2000.0d);

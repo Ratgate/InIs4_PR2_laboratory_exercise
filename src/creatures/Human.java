@@ -1,4 +1,4 @@
-package com.company;
+package creatures;
 
 import devices.Car;
 import devices.Phone;
@@ -12,6 +12,7 @@ public class Human {
     private Car car;
     private Double salary = 0.0d;
     protected Phone phone;
+
 
     public Double getSalary() {
         System.out.println("Dane o wypłacie na dzień: " + java.time.LocalDate.now() + " o godzinie " + java.time.LocalTime.now()  + "\n" + "Wypłata wynosi " + this.salary);
@@ -28,7 +29,6 @@ public class Human {
             System.out.println("Niemożliwe jest podwyższenie pensji o niedodatnią kwotę ");
         }
     }
-
 
     public Car getCar() {
         return car;

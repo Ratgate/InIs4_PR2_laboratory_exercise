@@ -1,6 +1,6 @@
 package devices;
 
-import com.company.Human;
+import creatures.Human;
 
 public class Car extends Device{
     public Integer numberOfDoors;
