@@ -7,14 +7,16 @@ import java.util.Date;
 abstract public class Device {
     public String model;
     public String producer;
-    public Date yearOfProduction;
+    public Integer yearOfProduction;
+    public Double value;
 
 
-    public abstract void sell(Human seller, Human buyer, Double price);
+    public abstract void sell(Human seller, Human buyer, Double price) throws Exception;
 
     abstract void turnOn();
 
     public String toString(){
         return model + " " + producer + " " + yearOfProduction;
     }
+
 }

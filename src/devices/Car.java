@@ -5,34 +5,34 @@ import creatures.Human;
 public abstract class Car extends Device{
     public Integer numberOfDoors;
     public Float maxSpeed;
-    public Double value;
 
 
-    public Car(String model, String producer, Double value) {
+
+    public Car(String model, String producer, Double value, Integer yearOfProduction) {
         this.model = model;
         this.producer = producer;
         this.value = value;
+        this.yearOfProduction = yearOfProduction;
     }
 
-
     @Override
-    public void sell(Human seller, Human buyer, Double price) {
-        try {
-            if (seller.getCar().equals(this)) {
-                if (buyer.cash >= price) {
+    public void sell(Human seller, Human buyer, Double price) throws Exception {
+        if(seller.haveCar(this)){
+            if(buyer.havePlaceInGarage()){
+                if(buyer.cash >= price){
+                    seller.removeCar(this);
+                    buyer.addCar(this);
                     buyer.cash -= price;
                     seller.cash += price;
-                    buyer.setCar(this);
-                    seller.setCar(null);
-                    System.out.println(buyer.firstName + " " + buyer.lastName + " kupił " + this.model + " od " + seller.firstName + " " + seller.lastName + " za " + price);
+                    System.out.println("Tranzakcja zakończona sukcesem");
                 } else {
-                    System.out.println(buyer.firstName + " " + buyer.lastName + " nie stać by zapłacić " + price);
+                    throw new Exception("Kupujący nie ma wystarczająco dużo pieniędzy");
                 }
             } else {
-                System.out.println(seller.firstName + " " + seller.lastName + "nie ma wskazanego " + this.model);
+                throw new Exception("Kupujący nie ma miejsca w garażu");
             }
-        } catch (NullPointerException e) {
-            System.out.println(seller.firstName + " " + seller.lastName + " nie ma oczekiwanego samochodu o modelu " + this.model);
+        } else {
+            throw new Exception("Sprzedający nie ma tego samochodu");
         }
     }
 
@@ -44,6 +44,6 @@ public abstract class Car extends Device{
     public abstract void refuel();
 
     public String toString(){
-        return model + " " + producer + " " + numberOfDoors + " " + maxSpeed + " " + value;
+        return model + " " + producer + " " + value + " rok produkcji " + yearOfProduction;
     }
 }
