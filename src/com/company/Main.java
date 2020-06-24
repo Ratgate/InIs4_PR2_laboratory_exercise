@@ -53,8 +53,21 @@ public class Main {
         System.out.println(me.toString());
         System.out.println(myWife.toString());
 
+        System.out.println("Liczba tranzakcji dla pewnego auta: " + me.getCar(0).numberOfOwnerChanges());
         me.getCar(0).sell(me, myWife, 4000.0d);
+        System.out.println("Liczba tranzakcji dla pewnego auta: " + myWife.getCar(2).numberOfOwnerChanges());
+
+
         System.out.println(me.toString());
         System.out.println(myWife.toString());
-        }
+
+        System.out.println(myWife.getGarage()[2].ownerList);
+        System.out.println(myWife.getGarage()[2].lastOwner());
+        System.out.println("Czy mi posiadał? (powinno być true): " + myWife.getGarage()[2].wasOwner(me));
+        System.out.println("Czy mi posiadał? (powinno być false): " + myWife.getGarage()[1].wasOwner(me));
+        System.out.println("Czy me sprzedał myWife samochód 2? (powinno być true): " + myWife.getGarage()[2].hasSold(me,myWife));
+        System.out.println("Czy me sprzedał myWife samochód 2? (powinno być false): " + myWife.getGarage()[2].hasSold(myWife, me));
+
+
+    }
 }

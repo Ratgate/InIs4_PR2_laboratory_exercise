@@ -2,9 +2,14 @@ package devices;
 
 import creatures.Human;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
+
 public abstract class Car extends Device{
     public Integer numberOfDoors;
     public Float maxSpeed;
+    public List<Human> ownerList = new ArrayList<>();
 
 
 
@@ -17,7 +22,7 @@ public abstract class Car extends Device{
 
     @Override
     public void sell(Human seller, Human buyer, Double price) throws Exception {
-        if(seller.haveCar(this)){
+        if(seller.haveCar(this) & this.lastOwner() == seller){
             if(buyer.havePlaceInGarage()){
                 if(buyer.cash >= price){
                     seller.removeCar(this);
@@ -42,6 +47,49 @@ public abstract class Car extends Device{
     }
 
     public abstract void refuel();
+
+    public void addOwner(Human newOwner){
+        this.ownerList.add(newOwner);
+    }
+
+    public Human lastOwner(){
+        return this.ownerList.get(this.ownerList.size() - 1);
+    }
+
+    public Boolean wasOwner(Human questionedOwner){
+        return this.ownerList.contains(questionedOwner);
+    }
+
+    public Boolean hasSold(Human A, Human B){
+        ListIterator<Human> listIterator = this.ownerList.listIterator();
+        try{
+            while (listIterator.hasNext()){
+                if(listIterator.next() == A){
+                    if(this.ownerList.get(listIterator.nextIndex()) == B){
+                        return true;
+                    }
+                }
+            }
+        } catch (NullPointerException | IndexOutOfBoundsException e){
+            return false;
+        }
+        return false;
+    }
+
+    public Integer numberOfOwnerChanges(){
+        ListIterator<Human> listIterator = this.ownerList.listIterator();
+        Integer numberOfTransactions = 0;
+        try{
+            listIterator.next();
+            while (listIterator.hasNext()){
+                listIterator.next();
+                numberOfTransactions++;
+                    }
+        } catch (NullPointerException | IndexOutOfBoundsException e){
+            return numberOfTransactions;
+        }
+        return numberOfTransactions;
+    }
 
     public String toString(){
         return model + " " + producer + " " + value + " rok produkcji " + yearOfProduction;

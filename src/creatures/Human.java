@@ -57,6 +57,7 @@ public class Human {
 
     public void setCar(Car car, Integer target){
         this.garage[target] = car;
+        car.addOwner(this);
     }
 
 
@@ -111,9 +112,11 @@ public class Human {
                 if(this.salary > car.value){
                     System.out.println("Udało się kupić samochód za gotówkę");
                     this.addCar(car);
+                    car.addOwner(this);
                 } else if(this.salary > car.value/12){
                     System.out.println("Udało się kupić samochód na kredyt");
                     this.addCar(car);
+                    car.addOwner(this);
                 } else {
                     System.out.println("Info w stylu \"zapisz się na studia i znajdź nową robotę albo idź po podwyżkę\"");
                 }
