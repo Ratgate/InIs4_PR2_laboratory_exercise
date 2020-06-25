@@ -1,8 +1,6 @@
 package com.company;
 
-import creatures.Animal;
 import creatures.Human;
-import creatures.Pet;
 import devices.*;
 
 
@@ -47,7 +45,7 @@ public class Main {
         System.out.println();
 
         System.out.println(myWife.getCar(0).toString());
-        myWife.setCar(new LPG("Combi", "Ursus", 14500.0d, 2019), 1);
+        myWife.setCar(new LPG("Combi", "Ursus", 14500.0d, 2019), 1, new CarTransaction(myWife, null, null, java.time.LocalDate.now()));
         System.out.println(myWife.getCar(1).toString());
 
         System.out.println(me.toString());
@@ -61,10 +59,10 @@ public class Main {
         System.out.println(me.toString());
         System.out.println(myWife.toString());
 
-        System.out.println(myWife.getGarage()[2].ownerList);
+        System.out.println(myWife.getGarage()[2].transactionList);
         System.out.println(myWife.getGarage()[2].lastOwner());
-        System.out.println("Czy mi posiadał? (powinno być true): " + myWife.getGarage()[2].wasOwner(me));
-        System.out.println("Czy mi posiadał? (powinno być false): " + myWife.getGarage()[1].wasOwner(me));
+        System.out.println("Czy me posiadał? (powinno być true): " + myWife.getGarage()[2].wasOwner(me));
+        System.out.println("Czy me posiadał? (powinno być false): " + myWife.getGarage()[1].wasOwner(me));
         System.out.println("Czy me sprzedał myWife samochód 2? (powinno być true): " + myWife.getGarage()[2].hasSold(me,myWife));
         System.out.println("Czy me sprzedał myWife samochód 2? (powinno być false): " + myWife.getGarage()[2].hasSold(myWife, me));
 

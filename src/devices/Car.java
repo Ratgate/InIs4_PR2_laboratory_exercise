@@ -9,7 +9,7 @@ import java.util.ListIterator;
 public abstract class Car extends Device{
     public Integer numberOfDoors;
     public Float maxSpeed;
-    public List<Human> ownerList = new ArrayList<>();
+    public List<CarTransaction> transactionList = new ArrayList<>();
 
 
 
@@ -26,7 +26,7 @@ public abstract class Car extends Device{
             if(buyer.havePlaceInGarage()){
                 if(buyer.cash >= price){
                     seller.removeCar(this);
-                    buyer.addCar(this);
+                    buyer.addCar(this, new CarTransaction(buyer, seller, price, java.time.LocalDate.now()));
                     buyer.cash -= price;
                     seller.cash += price;
                     System.out.println("Tranzakcja zakończona sukcesem");
@@ -48,36 +48,33 @@ public abstract class Car extends Device{
 
     public abstract void refuel();
 
-    public void addOwner(Human newOwner){
-        this.ownerList.add(newOwner);
+    public void addTransaction(CarTransaction transaction){
+        this.transactionList.add(transaction);
     }
 
     public Human lastOwner(){
-        return this.ownerList.get(this.ownerList.size() - 1);
+        return this.transactionList.get(this.transactionList.size() - 1).buyer;
     }
 
-    public Boolean wasOwner(Human questionedOwner){
-        return this.ownerList.contains(questionedOwner);
+    public Boolean wasOwner(Human questionedHuman){
+        return this.transactionList.stream().map(CarTransaction::getBuyer).anyMatch(questionedHuman::equals);
     }
 
-    public Boolean hasSold(Human A, Human B){
-        ListIterator<Human> listIterator = this.ownerList.listIterator();
-        try{
-            while (listIterator.hasNext()){
-                if(listIterator.next() == A){
-                    if(this.ownerList.get(listIterator.nextIndex()) == B){
-                        return true;
-                    }
-                }
-            }
-        } catch (NullPointerException | IndexOutOfBoundsException e){
-            return false;
-        }
-        return false;
-    }
+     public Boolean hasSold(Human A, Human B){
+         for (CarTransaction transaction : this.transactionList) {
+             try{
+                 if(transaction.seller == A & transaction.buyer == B){
+                     return true;
+                 }
+             } catch (NullPointerException e){
+                 continue;
+             }
+         }
+         return false;
+       }
 
     public Integer numberOfOwnerChanges(){
-        ListIterator<Human> listIterator = this.ownerList.listIterator();
+        ListIterator<CarTransaction> listIterator = this.transactionList.listIterator();
         Integer numberOfTransactions = 0;
         try{
             listIterator.next();

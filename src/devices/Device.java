@@ -2,7 +2,6 @@ package devices;
 
 import creatures.Human;
 
-import java.util.Date;
 
 abstract public class Device {
     public String model;

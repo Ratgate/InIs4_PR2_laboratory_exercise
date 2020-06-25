@@ -1,6 +1,7 @@
 package creatures;
 
 import devices.Car;
+import devices.CarTransaction;
 import devices.Phone;
 
 import java.util.Arrays;
@@ -55,17 +56,19 @@ public class Human {
         }
     }
 
-    public void setCar(Car car, Integer target){
+    public void setCar(Car car, Integer target, CarTransaction transaction){
         this.garage[target] = car;
-        car.addOwner(this);
+        car.addTransaction(transaction);
+    }
+    public void addCar(Car newCar) throws Exception {
+        this.addCar (newCar, new CarTransaction(this, null, newCar.value, java.time.LocalDate.now()));
     }
 
-
-    public void addCar (Car newCar) throws Exception {
+    public void addCar (Car newCar, CarTransaction transaction) throws Exception {
         boolean success = false;
         for (int i = 0; i < garage.length; i++) {
             if(garage[i] == null){
-                this.setCar(newCar, i);
+                this.setCar(newCar, i, transaction);
                 success = true;
                 break;
             }
@@ -109,14 +112,10 @@ public class Human {
 
     public void buyCar(Car car) throws Exception {
             if(this.havePlaceInGarage()){
-                if(this.salary > car.value){
-                    System.out.println("Udało się kupić samochód za gotówkę");
-                    this.addCar(car);
-                    car.addOwner(this);
-                } else if(this.salary > car.value/12){
-                    System.out.println("Udało się kupić samochód na kredyt");
-                    this.addCar(car);
-                    car.addOwner(this);
+                if(this.cash > car.value){
+                    System.out.println("Udało się kupić samochód");
+                    this.cash -= car.value;
+                    this.addCar(car, new CarTransaction(this, null, car.value, java.time.LocalDate.now()));
                 } else {
                     System.out.println("Info w stylu \"zapisz się na studia i znajdź nową robotę albo idź po podwyżkę\"");
                 }
