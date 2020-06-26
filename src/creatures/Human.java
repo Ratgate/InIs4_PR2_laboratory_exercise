@@ -129,7 +129,12 @@ public class Human {
     }
 
     public void setPhone(Phone phone){
-        this.phone = phone;
+        if(phone != null){
+            this.phone = phone;
+            this.phone.owner = this;
+        } else {
+            this.phone = null;
+        }
     }
 
     public Double garageValue(){

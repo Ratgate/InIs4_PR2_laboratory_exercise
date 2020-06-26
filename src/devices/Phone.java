@@ -4,6 +4,9 @@ import creatures.Human;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Phone extends Device {
     static final String DEFAULT_APPLICATIONS_SERVER = "http://defaultCity.com";
@@ -11,6 +14,8 @@ public class Phone extends Device {
     static final String DEFAULT_APPLICATIONS_VERSION = "latest";
     final Float screenSize;
     final String os;
+    public Human owner;
+    public ArrayList<Application> appList = new ArrayList<>();
 
 
     public Phone(String producer, String model, Float screenSize, String os) {
@@ -28,8 +33,65 @@ public class Phone extends Device {
         System.out.println("Phone has been muted");
     }
 
-    void installAnApp(){
-        System.out.println("App has been installed on the phone");
+    public void installAnApp(Application app){
+        if(this.owner.cash >= app.price){
+            this.appList.add(app);
+            this.owner.cash -= app.price;
+        }
+    }
+
+    public Boolean isInstalled(Application questionedApp){
+        for (Application app : this.appList) {
+            if(questionedApp.name.equals(app.name) & questionedApp.version.equals(app.version)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Boolean isInstalled(String questionedName){
+        for (Application app : this.appList) {
+            if(app.name.equals(questionedName)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void printFreeApps() throws Exception {
+        for (Application app : this.appList) {
+            if(app.price != null){
+                if(app.price == 0){
+                    System.out.println(app.toString());
+                }
+            } else {
+                throw new Exception(app.toString() + " cena jest nullem");
+            }
+        }
+    }
+
+    public Double appValue(){
+        double value = 0.0d;
+        for (Application app : this.appList) {
+            if(app.price != null){
+                value += app.price;
+            }
+        }
+        return value;
+    }
+
+    public void sortAppsByName(){
+        ArrayList<Application> sortedList = new ArrayList<>(this.appList);
+        Comparator<Application> comp = Comparator.comparing(Application::getName);
+        sortedList.sort(comp);
+        System.out.println(sortedList);
+    }
+
+    public void sortByPrice(){
+        ArrayList<Application> sortedList = new ArrayList<>(this.appList);
+        Comparator<Application> comp = Comparator.comparing(Application::getPrice);
+        sortedList.sort(comp);
+        System.out.println(sortedList);
     }
 
     void installAnnApp(String name){
